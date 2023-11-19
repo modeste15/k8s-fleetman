@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fleetman-mongodb
+  template:
+    metadata:
+      labels:
+        app: fleetman-mongodb
+    spec:
+      containers:
+      - name: fleetman-mongodb
+        image: mongo:3.6.23
+        volumeMounts:
+        - name: mongo-storage
+          mountPath: /data/db
+      volumes:
+      - name: mongo-storage
+        persistentVolumeClaim:
+          claimName: mongo-pvc
