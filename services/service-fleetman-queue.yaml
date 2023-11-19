@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: fleetman-queue
 spec:
+  type: LoadBalancer
   selector:
     app: fleetman-queue
   ports:
@@ -14,5 +15,3 @@ spec:
     protocol: TCP
     port: 61616
     targetPort: 61616
-  type: LoadBalancer
-  loadBalancerIP: 192.168.1.148  
