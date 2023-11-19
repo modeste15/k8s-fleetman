@@ -6,11 +6,13 @@ spec:
   selector:
     app: fleetman-queue
   ports:
-  - name: port1
+  - name: http
     protocol: TCP
     port: 8161
     targetPort: 8161
-  - name: port2
+  - name: amqp
     protocol: TCP
     port: 61616
     targetPort: 61616
+  type: LoadBalancer
+  loadBalancerIP: 192.168.1.148  

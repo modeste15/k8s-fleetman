@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fleetman-api-gateway-deployment
+  name: fleetman-api-gateway
 spec:
   replicas: 1
   selector:
@@ -18,5 +18,5 @@ spec:
         ports:
         - containerPort: 8080
         env:
-        - name: SPRI_PROFILES_ACTIVE
+        - name: SPRING_PROFILES_ACTIVE
           value: production-microservice

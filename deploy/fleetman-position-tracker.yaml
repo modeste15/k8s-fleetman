@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fleetman-position-tracker-deployment
+  name: fleetman-position-tracker
 spec:
   replicas: 1
   selector:
@@ -15,8 +15,6 @@ spec:
       containers:
       - name: fleetman-position-tracker
         image: supinfo4kube/position-tracker:1.0.1
-        ports:
-        - containerPort: 8080
         env:
         - name: SPRING_PROFILES_ACTIVE
-          value: local-microservice
+          value: production-microservice
